@@ -1,0 +1,23 @@
+:root {
+    font-family: sans-serif;
+    font-size: 16px;
+
+    --bgColor1: #15202b;
+    --bgColor2: #192734;
+    --bgColor3: #22303c;
+    --bgColorPopUp: #273746;
+    --textColor: #eaebec;
+    --accent: #2abd67;
+    --accentDark:#1f8d4d;
+}
+/* css when light mode is turned on */
+body.light{
+    --bodyColor:#ececec;
+    --sidebarColor: #f2f3f5;
+    --textColor: #374958;
+    --accentDark: #2abd67;
+}
+body{
+    background-color: var(--bgColor1);
+    height:100vh;
+}
