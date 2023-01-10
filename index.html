@@ -67,17 +67,33 @@
         </div>
       </div>
       <div class="content">
-        <div class="Title">Title</div>
+        <div class="Title">Inbox</div>
         <div class="taskContainer">
           <div class="task">
-            <div class="taskLeft">
-              <input type="checkbox" />
-              <div class="title">hi</div>
+            <div class="task-shown">
+              <div class="taskLeft">
+                <input type="checkbox"/>
+                <div class="title">hi</div>
+              </div>
+              <div class="date">No due Date</div>
+              <div class="taskRight">
+                <span class="material-symbols-outlined" id = "down"> expand_more </span>
+                <span class="material-symbols-outlined" id = "up">
+                  keyboard_arrow_up
+                  </span>
+                <span class="material-symbols-outlined"> delete </span>
+              </div>
             </div>
-            <div class="date">No due Date</div>
-            <div class="taskRight">
-              <span class="material-symbols-outlined"> expand_more </span>
-              <span class="material-symbols-outlined"> delete </span>
+            <div class="task-hidden active">
+              <div class="taskHiddenTop">
+                <h4>Description: </h4>
+                <span class="material-symbols-outlined">
+                  edit
+                  </span>
+              </div>
+              <div class="description">
+                hello my name is joe I got a house two kids and one spouse I work in a button factory.
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +104,7 @@
               <input
                 type="text"
                 name="title"
-                id="title"
+                id="title2"
                 placeholder="Title"
                 required
                 minlength="2"
@@ -107,7 +123,10 @@
               <label for="date">Date</label>
               <input type="date" name="dueDate" id="date" />
             </div>
-            <button type="submit" id="submit">Submit</button>
+            <div class="buttons">
+              <button type="submit" id="submit2">Submit</button>
+              <button type="button" id="cancel2">Cancel</button>
+            </div>
           </div>
         </form>
         <button class="addTask">
@@ -116,5 +135,6 @@
         </button>
       </div>
     </div>
+    <div class="overlay"></div>
   </body>
 </html>
