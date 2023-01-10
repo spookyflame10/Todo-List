@@ -17,6 +17,10 @@ class project {
   getTasks() {
     return this.tasks;
   }
+
+  getTask(name){
+    return this.tasks.find((t)=>t.getName() === name);
+  }
   
   contains(task) {
     return this.tasks.some((t) => task.getName() === t.getName());
@@ -30,7 +34,6 @@ class project {
     this.tasks.push(task);
     return true;
   }
-
 
   removeTask(task) {
     this.tasks = this.tasks.filter((t) => t.getName() !== task.getName());

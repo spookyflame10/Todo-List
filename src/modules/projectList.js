@@ -5,14 +5,14 @@ const projectList = (() => {
   let projects = [];
   projects.push(new Project("Inbox"));
   projects.push(new Project("Today"));
-  projects.push(new Project("This week"));
+  projects.push(new Project("This Week"));
   const getProjects = () => projects;
-  const getProject = (project) =>
-    projects.find((p) => project.getName() === p.getName());
-  const contains = (project) =>
-    projects.some((p) => project.getName() === p.getName());
+  const getProject = (projectName) =>
+    projects.find((p) => projectName === p.getName());
+  const contains = (name) =>
+    projects.some((p) => name === p.getName());
   function addProject(newProject) {
-    if (contains(newProject)){
+    if (contains(newProject.getName())){
       alert('pls put diff title');
       return false;
     }
@@ -23,7 +23,6 @@ const projectList = (() => {
     projects = projects.filter(
       (p) => p.getName() !== project.getName()
     );
-    console.log(project);
   }
 
   return {
