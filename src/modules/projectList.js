@@ -12,8 +12,12 @@ const projectList = (() => {
   const contains = (project) =>
     projects.some((p) => project.getName() === p.getName());
   function addProject(newProject) {
-    if (contains(newProject)) return;
+    if (contains(newProject)){
+      alert('pls put diff title');
+      return false;
+    }
     projects.push(newProject);
+    return true;
   }
   function deleteProject(project) {
     projects = projects.filter(
@@ -21,6 +25,7 @@ const projectList = (() => {
     );
     console.log(project);
   }
+
   return {
     getProject,
     getProjects,

@@ -1,7 +1,8 @@
 export default class task {
-  constructor(name, dueDate = "No date") {
+  constructor(name, dueDate = "No date", description = "") {
     this.name = name;
     this.dueDate = dueDate;
+    this.description = description;
   }
 
   setName(name) {
@@ -25,6 +26,14 @@ export default class task {
     const month = this.dueDate.split("/")[1];
     const year = this.dueDate.split("/")[2];
     return `${month}/${day}/${year}`;
+  }
+
+  getDescription(){
+    return this.description;
+  }
+
+  setDescription(description){
+    this.description = description;
   }
 }
 // const getDescription = () => description;

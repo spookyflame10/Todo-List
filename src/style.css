@@ -10,14 +10,236 @@
     --accent: #2abd67;
     --accentDark:#1f8d4d;
 }
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
 /* css when light mode is turned on */
 body.light{
-    --bodyColor:#ececec;
-    --sidebarColor: #f2f3f5;
+    --bgColor2: #ececec;
+    --bgColor3: #f2f3f5;
+    --bgColor1: #fefcfe;
+    --bgColorPopUp: #f3f1f3;
     --textColor: #374958;
     --accentDark: #2abd67;
 }
 body{
     background-color: var(--bgColor1);
     height:100vh;
+    color: var(--textColor);
 }
+.container{
+    display:grid;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1fr 5fr;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.header{
+    grid-column: 1/-1;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px 60px 0px 60px;
+    background-color: var(--bgColor2);
+}
+.logo{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 40px;
+    font-weight: 900;
+}
+#logo{
+    font-size: 40px;
+}
+.sidebar{
+    grid-row: 2/-1;
+    background-color: var(--bgColor3);
+    display:grid;
+    grid-template-rows: auto 1fr;
+    padding-left: 10px;
+    padding-top: 20px;
+    gap: 20px;
+}
+button{
+    border:none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+button:hover{
+    background-color: var(--bgColor1);
+}
+.sideTop{
+    display:grid;
+    gap: 20px;
+}
+.sideItem, .addTask{
+    font-size: 15px;
+    background-color: var(--bgColor3);
+    display:grid;
+    grid-template-columns: 50px 100px;
+    gap: 15px;
+    align-items:center;
+    justify-items: start;
+    border-radius: 20px;
+    height: 35px;
+}
+.projectContainer>*.sideItem{
+    grid-template-columns: 50px 100px 1fr;
+}
+.projectContainer>.sideItem>span:last-child{
+    justify-self:end;
+    padding-right: 20px;
+    display:none;
+}
+.projectContainer>.sideItem:hover span#close{
+    display:block;
+}
+.sideBottom{
+    display:grid;
+    gap: 10px;
+    grid-auto-rows: max-content;
+}
+.sideBottom>.big{
+    font-size: 20px;
+    border-bottom: 2px solid var(--textColor);
+    padding-bottom: 3px;
+}
+.sideBottom>.projectContainer>.sideItem{
+    padding:0;
+    width: 100%;
+}
+.project-modal{
+    display:none;
+}
+.project-modal.active{
+    display:block;
+}
+
+textarea{
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none; /*remove the resize handle on the bottom right*/
+}
+.input>input, .input>textarea{
+    all: unset;
+    min-height: 25px;
+    width: 96%;
+    background-color: var(--bgColor2);
+    border-bottom: 1px solid gray;
+}
+.buttons{
+    display:flex;
+    padding-top: 5px;
+}
+.buttons>button, #submit{
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: var(--accentDark);
+    color:var(--textColor);
+    font-size: inherit;
+    font-weight: bold;
+}
+.buttons>#cancel{
+    border: 1px solid #ee6d6d;
+    background-color: #ec4141;
+}
+.content{
+    display:grid;
+    grid-auto-rows: max-content;
+    padding: 20px;
+    gap:20px;
+    justify-items: center;
+}
+.content>.Title{
+    height: 150px;
+    width: 90%;
+    font-size: 40px;
+    padding-left:20px;
+    justify-self: center;
+    display:flex;
+    align-items: center;
+    background-color: var(--accent);
+    border-radius: 30px;
+}
+
+button.addTask:hover{
+    background-color: var(--bgColor2);
+}
+.content>.addTask{
+    justify-items: center;
+    width: 80%;
+    justify-self: center;
+}
+.taskModal.active{
+    display: block;
+}
+.taskModal{
+    display:none;
+}
+.modal-container{
+    background-color: var(--bgColor3);
+    display:grid;
+    grid-auto-rows: max-content;
+    gap: 20px;
+    justify-items: start;
+    justify-content: center;
+    font-size: 20px;
+    width:fit-content;
+    padding: 20px;
+    border-radius: 20px;
+}
+.input{
+    display:grid;
+    grid-auto-rows: max-content;
+}
+.taskContainer{
+    width: 70%;
+}
+.task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--textColor);
+    border-radius: 15px;
+    padding:10px 20px;
+}
+.taskLeft{
+    display:flex;
+    gap: 10px;
+    align-items: center;
+}
+input[type="checkbox"] {
+    appearance: none;
+    background-color: inherit;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em red;
+    transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
