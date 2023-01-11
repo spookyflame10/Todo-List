@@ -14,12 +14,15 @@
   <body>
     <div class="container">
       <div class="header">
-        <span class="material-symbols-outlined"> menu </span>
+        <span class="material-symbols-outlined" id="menu"> menu </span>
         <div class="logo">
           <span class="material-symbols-outlined" id="logo"> done </span>
           <div>ToDo</div>
         </div>
-        <div class="mode">change</div>
+        <div class="mode">
+            <span class="material-symbols-outlined sun"> light_mode </span>
+            <span class="material-symbols-outlined dark"> dark_mode </span>
+        </div>
       </div>
       <div class="sidebar">
         <div class="sideTop">
@@ -46,7 +49,7 @@
                   type="text"
                   name="title"
                   id="title"
-                  pattern = "^[^-]*$"
+                  pattern="^[^-]*$"
                   placeholder="Name(no '-')"
                   required
                   minlength="2"
@@ -72,27 +75,28 @@
           <div class="task">
             <div class="task-shown">
               <div class="taskLeft">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <div class="title">hi</div>
               </div>
               <div class="date">No due Date</div>
               <div class="taskRight">
-                <span class="material-symbols-outlined" id = "down"> expand_more </span>
-                <span class="material-symbols-outlined" id = "up">
+                <span class="material-symbols-outlined" id="down">
+                  expand_more
+                </span>
+                <span class="material-symbols-outlined" id="up">
                   keyboard_arrow_up
-                  </span>
+                </span>
                 <span class="material-symbols-outlined"> delete </span>
               </div>
             </div>
             <div class="task-hidden active">
               <div class="taskHiddenTop">
-                <h4>Description: </h4>
-                <span class="material-symbols-outlined">
-                  edit
-                  </span>
+                <h4>Description:</h4>
+                <span class="material-symbols-outlined"> edit </span>
               </div>
               <div class="description">
-                hello my name is joe I got a house two kids and one spouse I work in a button factory.
+                hello my name is joe I got a house two kids and one spouse I
+                work in a button factory.
               </div>
             </div>
           </div>
