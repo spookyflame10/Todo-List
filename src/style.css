@@ -52,6 +52,10 @@ body {
 #logo {
   font-size: 40px;
 }
+
+.sidebar.active{
+  visibility: hidden;
+}
 .sidebar {
   grid-row: 2/-1;
   background-color: var(--bgColor3);
@@ -214,6 +218,8 @@ button.addTask:hover {
 }
 .taskContainer {
   width: 70%;
+  display:grid;
+  gap:10px;
 }
 .task {
   display: grid;
@@ -223,6 +229,9 @@ button.addTask:hover {
   gap: 5px;
 }
 .task span {
+  cursor: pointer;
+}
+span:hover{
   cursor: pointer;
 }
 .task-shown {
@@ -293,6 +302,9 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
+.addTask.active{
+    display:none;
+}
 .overlay.active {
   display: block;
 }
@@ -305,4 +317,20 @@ input[type="checkbox"]:checked::before {
   left: 0;
   background-color: rgba(9, 13, 14, 0.8);
   align-content: center;
+}
+.mode{
+  background-color: var(--bgColor1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 50px;
+    height: 40px;
+    width: 80px;
+    box-sizing: border-box;
+    position: relative;
+    transform: scale(0.8);
+    transition: background-color 0.2s ease-in;
+    border: solid 3px var(--accentDark);
+    cursor: pointer;
 }

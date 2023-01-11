@@ -1,6 +1,7 @@
 import Project from "./project";
 import Task from "./task";
 import projectList from "./projectList";
+import Storage from "./storage";
 
 function getProjectFromTitle() {
   const projectTitle = document.querySelector(".Title");
@@ -17,7 +18,6 @@ function getTaskFromInput() {
   const description = document.getElementById("description").value;
   const date = document.getElementById("date").value;
   const task = new Task(title, date, description);
-  console.log(task);
   return task;
 }
 function removeTask(e) {
@@ -25,23 +25,24 @@ function removeTask(e) {
   const project = getProjectFromTitle();
   const task = project.getTask(name);
   project.removeTask(task);
+  Storage.setProjectList();
   displayTaskList(project.getTasks());
 }
 
 function editTask(e) {
-  const {name} = e.target.dataset;
+  const { name } = e.target.dataset;
   const project = getProjectFromTitle();
   const task = project.getTask(name);
 
   const taskModal = document.querySelector(".taskModal");
   taskModal.classList.toggle("modal");
-  const overlay = document.querySelector('.overlay');
-  overlay.classList.toggle('active');
+  const overlay = document.querySelector(".overlay");
+  overlay.classList.toggle("active");
   const taskCancel = document.querySelector("#cancel2");
   taskCancel.onclick = () => {
     taskModal.classList.toggle("modal");
-    overlay.classList.toggle('active');
-  }
+    overlay.classList.toggle("active");
+  };
   taskModal.onsubmit = (event) => {
     event.preventDefault();
     const newTask = getTaskFromInput();
@@ -49,8 +50,9 @@ function editTask(e) {
     task.setDate(newTask.getDate());
     task.setDescription(newTask.getDescription());
     taskModal.classList.toggle("modal");
-    overlay.classList.toggle('active');
+    overlay.classList.toggle("active");
     displayTaskList(project.getTasks());
+    Storage.setProjectList();
   };
 }
 function displayTask(task) {
@@ -138,8 +140,8 @@ function submitTask(e) {
   const task = getTaskFromInput();
   taskModalToggle();
   if (project.addTask(task)) {
-    console.log(project.getTasks());
     displayTaskList(project.getTasks());
+    Storage.setProjectList();
   }
 }
 function dtm() {

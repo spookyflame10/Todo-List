@@ -18,6 +18,10 @@ class project {
     return this.tasks;
   }
 
+  setTasks(tasks){
+    this.tasks = tasks;
+  }
+
   getTask(name){
     return this.tasks.find((t)=>t.getName() === name);
   }

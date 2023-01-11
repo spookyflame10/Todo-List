@@ -2,6 +2,8 @@ import Project from "./project";
 import Task from "./task";
 import projectList from "./projectList";
 import {dtm, displayTaskList} from "./taskUI";
+import Storage from './storage';
+
 
 function getProjectFromInput() {
   const title = document.getElementById("title").value.trim();
@@ -15,7 +17,6 @@ function projectModalToggle() {
 function goToProject(e) {
   const projectTitle = document.querySelector(".Title");
   let name = e.target.dataset.title;
-  console.log(name);
   name = name.replaceAll("-", " ");
   if(!projectList.contains(name)){
     return;
@@ -37,6 +38,7 @@ function removeProject(e){
   projectList.deleteProject(project);
   displayProjectList();
   goToInbox();
+  Storage.setProjectList();
 }
 function displayProject(project) {
   const projectContainer = document.querySelector(".projectContainer");
@@ -66,8 +68,12 @@ function displayProject(project) {
   button.appendChild(icon);
   button.appendChild(projectName);
   button.appendChild(close);
+  const addTask = document.querySelector(".addTask");
   close.addEventListener('click', removeProject);
-  button.addEventListener("click", goToProject);
+  button.addEventListener("click", (e)=>{
+    addTask.classList.remove('active');
+    goToProject(e);
+  });
   projectContainer.appendChild(button);
 }
 function displayProjectList() {
@@ -82,6 +88,7 @@ function submitProject(e) {
   projectModalToggle();
   if (projectList.addProject(project)) {
     displayProjectList();
+    Storage.setProjectList();
   }
 }
 function displayProjectModal() {
@@ -93,4 +100,5 @@ function displayProjectModal() {
   // remember that onsubmit is used for form not button
 }
 
-export{goToProject, displayProjectModal as dpm};
+export{goToProject, displayProjectModal as dpm,
+  displayProjectList as dpl};

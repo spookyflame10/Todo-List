@@ -5,11 +5,10 @@ import Task from './modules/task.js';
 import projectList from './modules/projectList.js';
 import UI from './modules/UI.js';
 // -import {toDo} from './objects.js';
-console.log(projectList);
+
 const task1 = new Task('bob', '2/4/22');
 const project = projectList.getProject('Inbox');
 project.addTask(task1);
-console.log(UI);
 UI.initialUI();
 // const task1 = new Task('bob', '2/4/22');
 // console.log(task1.setName('hdidd'));
@@ -24,4 +23,3 @@ UI.initialUI();
 // projectList.addProject(project1);
 // console.log(projectList.getProjects());
 
-console.log('hidllssdd');
