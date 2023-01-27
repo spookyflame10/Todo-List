@@ -26,6 +26,8 @@ body {
   background-color: var(--bgColor1);
   height: 100vh;
   color: var(--textColor);
+  margin: 0;
+  padding: 0;
 }
 .container {
   display: grid;
@@ -217,7 +219,7 @@ button.addTask:hover {
   grid-auto-rows: max-content;
 }
 .taskContainer {
-  width: 70%;
+  width: 90%;
   display:grid;
   gap:10px;
 }
